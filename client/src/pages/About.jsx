@@ -1,50 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
+import { Card } from "flowbite-react";
 
 const About = () => {
+  const [currentSection, setCurrentSection] = useState("staff");
+
+  const handleSectionChange = () => {
+    setCurrentSection((prevSection) =>
+      prevSection === "staff" ? "boats" : "staff"
+    );
+  };
+
   return (
-    <div>
-      <h2 className="text-2xl font-bold leading-7 text-white-900 sm:truncate sm:text-3xl sm:tracking-tight">
-        About Page will go here
-      </h2>
-
-      <div id="option-1" className="mt-4 p-4 border border-gray-300 rounded-lg">
-        <h3 className="text-xl font-semibold mb-2">Option 1</h3>
-        <p>This is some filler text for Option 1.</p>
-        <img
-          src="https://via.placeholder.com/150"
-          alt="Placeholder"
-          className="mt-2"
-        />
+    <div className="relative h-screen">
+      {/* Staff Section */}
+      <div
+        id="staff"
+        className={`mx-auto px-4 py-8 absolute inset-0 transition-transform duration-500 w-9/12 ${
+          currentSection === "staff" ? "z-10" : "z-0 opacity-50"
+        }`}
+        onClick={handleSectionChange}
+      >
+        <h2 className="text-2xl font-bold text-center mb-4">Our Staff</h2>
+        <div className="flex flex-wrap justify-center space-x-4 ">
+          {["staff1.jpg", "staff2.jpg", "staff3.jpg"].map((staff, idx) => (
+            <Card key={idx} className="w-1/3">
+              <img
+                src={staff}
+                alt={`Staff member ${idx + 1}`}
+                className="rounded-full w-32 h-32 mx-auto"
+              />
+              <p className="text-center mt-2">Staff Member {idx + 1}</p>
+            </Card>
+          ))}
+        </div>
       </div>
 
-      <div id="option-2" className="mt-4 p-4 border border-gray-300 rounded-lg">
-        <h3 className="text-xl font-semibold mb-2">Option 2</h3>
-        <p>This is some filler text for Option 2.</p>
-        <img
-          src="https://via.placeholder.com/150"
-          alt="Placeholder"
-          className="mt-2"
-        />
-      </div>
-
-      <div id="option-3" className="mt-4 p-4 border border-gray-300 rounded-lg">
-        <h3 className="text-xl font-semibold mb-2">Option 3</h3>
-        <p>This is some filler text for Option 3.</p>
-        <img
-          src="https://via.placeholder.com/150"
-          alt="Placeholder"
-          className="mt-2"
-        />
-      </div>
-
-      <div id="option-4" className="mt-4 p-4 border border-gray-300 rounded-lg">
-        <h3 className="text-xl font-semibold mb-2">Option 4</h3>
-        <p>This is some filler text for Option 4.</p>
-        <img
-          src="https://via.placeholder.com/150"
-          alt="Placeholder"
-          className="mt-2"
-        />
+      {/* Boats Section */}
+      <div
+        id="boats"
+        className={`absolute inset-0 transition-transform duration-500 container mx-auto px-4 py-8 ${
+          currentSection === "boats" ? "z-10" : "z-0 opacity-50"
+        }`}
+        onClick={handleSectionChange}
+      >
+        <h2 className="text-2xl font-bold text-center mb-4">Our Boats</h2>
+        <div className="flex flex-wrap justify-center space-x-4">
+          {["boat1.jpg", "boat2.jpg", "boat3.jpg"].map((boat, idx) => (
+            <Card key={idx} className="w-1/3">
+              <img
+                src={boat}
+                alt={`Boat ${idx + 1}`}
+                className="w-full h-48 object-cover"
+              />
+              <p className="text-center mt-2">Boat {idx + 1}</p>
+            </Card>
+          ))}
+        </div>
       </div>
     </div>
   );

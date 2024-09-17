@@ -18,18 +18,19 @@ app.use(
 );
 app.use(bodyParser.json());
 
-// Nodemailer configuration
-const transporter = nodemailer.createTransport({
-  service: "gmail", // or another service like 'yahoo', 'outlook'
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
-
 // Endpoint to handle form submissions
 app.post("/api/contact", (req, res) => {
   const { subject, message, email, phone } = req.body;
+
+  // Nodemailer configuration
+  const transporter = nodemailer.createTransport({
+    service: "gmail", // or another service like 'yahoo', 'outlook'
+    secure: true,
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
 
   const mailOptions = {
     from: email || "no-reply@example.com",

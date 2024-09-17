@@ -1,23 +1,19 @@
-import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import "flowbite";
 
-import "./App.css";
 import "./index.css";
 import Header from "./components/Header/Header";
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/MEFooter/MEFooter";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
+    <div className="bg-dark-blue text-tan font-sans leading-tight">
       <Header />
       <Nav />
-      <Outlet />
+      <Outlet className="container mx-auto px-4 py-8" />
       <Footer />
-    </>
+    </div>
   );
 }
 
