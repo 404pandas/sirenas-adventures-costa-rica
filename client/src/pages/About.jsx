@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Card } from "flowbite-react";
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi"; // Import arrow icons
 
 const About = () => {
   const [currentSection, setCurrentSection] = useState("staff");
@@ -18,10 +19,9 @@ const About = () => {
         className={`mx-auto px-4 py-8 absolute inset-0 transition-transform duration-500 w-9/12 ${
           currentSection === "staff" ? "z-10" : "z-0 opacity-50"
         }`}
-        onClick={handleSectionChange}
       >
         <h2 className="text-2xl font-bold text-center mb-4">Our Staff</h2>
-        <div className="flex flex-wrap justify-center space-x-4 ">
+        <div className="flex flex-wrap justify-center space-x-4">
           {["staff1.jpg", "staff2.jpg", "staff3.jpg"].map((staff, idx) => (
             <Card key={idx} className="w-1/3">
               <img
@@ -33,6 +33,10 @@ const About = () => {
             </Card>
           ))}
         </div>
+        <HiChevronRight
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 text-4xl cursor-pointer"
+          onClick={handleSectionChange}
+        />
       </div>
 
       {/* Boats Section */}
@@ -41,7 +45,6 @@ const About = () => {
         className={`absolute inset-0 transition-transform duration-500 container mx-auto px-4 py-8 ${
           currentSection === "boats" ? "z-10" : "z-0 opacity-50"
         }`}
-        onClick={handleSectionChange}
       >
         <h2 className="text-2xl font-bold text-center mb-4">Our Boats</h2>
         <div className="flex flex-wrap justify-center space-x-4">
@@ -56,6 +59,10 @@ const About = () => {
             </Card>
           ))}
         </div>
+        <HiChevronLeft
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 text-4xl cursor-pointer"
+          onClick={handleSectionChange}
+        />
       </div>
     </div>
   );

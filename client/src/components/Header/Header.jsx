@@ -13,12 +13,13 @@ const Header = () => {
             Dad is gunna write something super cool here about how he picks
             people up at their dock and takes them on a super cool adventure.
           </p>
-          <a
-            href="#"
+
+          <Link
+            to="/contact"
             className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg"
           >
-            <Link to="/contact">Contact Us</Link>
-          </a>
+            Contact Us
+          </Link>
         </div>
       </section>
     </div>

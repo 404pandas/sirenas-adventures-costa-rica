@@ -2,16 +2,20 @@ import React, { useState } from "react";
 import { Datepicker } from "flowbite-react";
 
 const ContactForm = () => {
+  const today = new Date();
+  const oneWeekFromToday = new Date(today);
+  oneWeekFromToday.setDate(today.getDate() + 7);
+
   const [formData, setFormData] = useState({
-    subject: "",
     message: "",
     email: "",
     phone: "",
     firstName: "",
     lastName: "",
-    startDate: null,
-    endDate: null,
   });
+
+  const [startDate, setStartDate] = useState(today);
+  const [endDate, setEndDate] = useState(oneWeekFromToday);
 
   const [errors, setErrors] = useState({});
   const [submissionStatus, setSubmissionStatus] = useState(null);
@@ -21,32 +25,45 @@ const ContactForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleDateChange = (dates) => {
-    const { startDate, endDate } = dates;
-    setFormData({ ...formData, startDate, endDate });
-    console.log(formData);
+  const handleStartDateChange = (date) => {
+    console.log("Start Date Selected:", date);
+    setStartDate(date); // Update local start date
+  };
+
+  const handleEndDateChange = (date) => {
+    console.log("End Date Selected:", date);
+    setEndDate(date); // Update local end date
   };
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.subject) newErrors.subject = "Subject is required.";
     if (!formData.message) newErrors.message = "Message is required.";
     if (!formData.firstName) newErrors.firstName = "First name is required.";
     if (!formData.lastName) newErrors.lastName = "Last name is required.";
-    if (!formData.startDate) newErrors.startDate = "Start date is required.";
-    if (!formData.endDate) newErrors.endDate = "End date is required.";
+    if (!startDate) newErrors.startDate = "Start date is required.";
+    if (!endDate) newErrors.endDate = "End date is required.";
     if (!formData.email) newErrors.email = "Email is required.";
 
     return newErrors;
   };
 
   const handleSubmit = async (e) => {
+    console.log("Form submitted");
     e.preventDefault();
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
+      console.log("Validation Errors:", validationErrors);
       setErrors(validationErrors);
       return;
     }
+
+    const dataToSubmit = {
+      ...formData,
+      startDate,
+      endDate,
+    };
+
+    console.log("Data to Submit:", dataToSubmit); // Log data to submit
 
     try {
       const response = await fetch("http://localhost:5001/api/contact", {
@@ -54,26 +71,29 @@ const ContactForm = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(dataToSubmit),
       });
 
       if (response.ok) {
         setSubmissionStatus("Your message has been sent successfully.");
         setFormData({
-          subject: "",
           message: "",
           email: "",
           phone: "",
           firstName: "",
           lastName: "",
-          startDate: "",
-          endDate: "",
         });
+        setStartDate(today);
+        setEndDate(oneWeekFromToday);
         setErrors({});
+        console.log(response);
       } else {
+        const errorText = await response.text();
+        console.log("Response Error:", errorText); // Log response error text
         setSubmissionStatus("There was an error sending your message.");
       }
     } catch (error) {
+      console.error("Catch Error:", error); // Log any caught errors
       setSubmissionStatus("There was an error sending your message.");
     }
   };
@@ -134,23 +154,17 @@ const ContactForm = () => {
           <div className="flex items-center">
             <div className="relative w-full mr-2">
               <Datepicker
+                readOnly={false}
                 title="Start Date"
-                onChange={(date) =>
-                  handleDateChange({ ...formData, startDate: date })
-                }
-                id="startDate"
-                name="startDate"
+                onChange={handleStartDateChange} // Ensure date is a Date object
               />
             </div>
             <span className="mx-4 text-black-500">to</span>
             <div className="relative w-full ml-2">
               <Datepicker
+                readOnly={false}
                 title="End Date"
-                onChange={(date) =>
-                  handleDateChange({ ...formData, endDate: date })
-                }
-                id="endDate"
-                name="endDate"
+                onChange={handleEndDateChange} // Ensure date is a Date object
               />
             </div>
           </div>
