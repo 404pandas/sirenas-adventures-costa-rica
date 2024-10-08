@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Dropdown } from "flowbite-react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./nav.css";
 
 const pages = [
@@ -91,17 +91,21 @@ const pages = [
 ];
 
 const Nav = () => {
+  const navigate = useNavigate();
+
   return (
     <Navbar fluid rounded className="sticky top-0 z-50">
-      <Navbar.Link>
-        <Link to="/">Home</Link>
-      </Navbar.Link>
+      <Navbar.Link onClick={() => navigate("/")}>Home</Navbar.Link>
       <Navbar.Collapse>
         {pages.map((page) => (
           <Dropdown inline label={page.main} key={page.main}>
             {page.options.map((option) => (
-              <Dropdown.Item key={option.id}>
-                <Link to={`${page.path}#${option.id}`}>{option.label}</Link>
+              <Dropdown.Item
+                key={option.id}
+                onClick={() => navigate(`${page.path}#${option.id}`)}
+              >
+                <span>{option.label}</span>{" "}
+                {/* Use <span> to prevent <a> nesting */}
               </Dropdown.Item>
             ))}
           </Dropdown>
