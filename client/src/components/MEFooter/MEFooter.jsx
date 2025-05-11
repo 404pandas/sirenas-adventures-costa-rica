@@ -1,12 +1,5 @@
-import React from "react";
 import { Footer } from "flowbite-react";
-import {
-  BsFacebook,
-  BsInstagram,
-  BsSignNoParking,
-  BsTwitter,
-  BsWhatsapp,
-} from "react-icons/bs";
+import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import { FaTripadvisor } from "react-icons/fa";
 
 import "./mefooter.css";
@@ -95,8 +88,8 @@ const pages = [
 const MEFooter = () => {
   return (
     <Footer bgDark>
-      <div className="w-full">
-        <div className="grid w-full grid-cols-2 gap-8 px-6 py-8 md:grid-cols-4">
+      <div className='w-full'>
+        <div className='grid w-full grid-cols-2 gap-8 px-6 py-8 md:grid-cols-4'>
           {pages.map((page) => (
             <div key={page.main}>
               <Footer.Title title={page.main} />
@@ -113,13 +106,13 @@ const MEFooter = () => {
             </div>
           ))}
         </div>
-        <div className="w-full bg-gray-700 px-4 py-6 sm:flex sm:items-center sm:justify-between">
+        <div className='w-full bg-gray-700 px-4 py-6 sm:flex sm:items-center sm:justify-between'>
           <Footer.Copyright
-            href="https://www.maryelenius.com/"
-            by="Mary Elenius 🤍"
+            href='https://www.maryelenius.com/'
+            by='Mary Elenius 🤍'
             year={2024}
           />
-          <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
+          <div className='mt-4 flex space-x-6 sm:mt-0 sm:justify-center'>
             {socialMedia.map((sm, index) => (
               <Footer.Icon key={index} href={sm.url} icon={sm.icon} />
             ))}

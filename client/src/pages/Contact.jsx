@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Datepicker } from "flowbite-react";
 
 const ContactForm = () => {
@@ -99,71 +99,71 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-4">
+    <div className='max-w-md mx-auto p-4'>
       <form onSubmit={handleSubmit}>
         {/* firstname */}
-        <div className="mb-4">
+        <div className='mb-4'>
           <label
-            htmlFor="firstName"
-            className="block mb-2 text-sm font-medium text-black-900 dark:text-white"
+            htmlFor='firstName'
+            className='block mb-2 text-sm font-medium text-black-900 dark:text-white'
           >
             First Name
           </label>
           <input
-            id="firstName"
-            name="firstName"
+            id='firstName'
+            name='firstName'
             value={formData.firstName}
             onChange={handleChange}
-            placeholder="Enter your first name"
+            placeholder='Enter your first name'
             required
-            className="bg-black-50 border border-black-300 text-black-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            className='bg-black-50 border border-black-300 text-black-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
           />
           {errors.firstName && (
-            <p className="text-red-500 text-sm">{errors.firstName}</p>
+            <p className='text-red-500 text-sm'>{errors.firstName}</p>
           )}
         </div>
         {/* lastname */}
-        <div className="mb-4">
+        <div className='mb-4'>
           <label
-            htmlFor="lastName"
-            className="block mb-2 text-sm font-medium text-black-900 dark:text-white"
+            htmlFor='lastName'
+            className='block mb-2 text-sm font-medium text-black-900 dark:text-white'
           >
             Last Name
           </label>
           <input
-            id="lastName"
-            name="lastName"
+            id='lastName'
+            name='lastName'
             value={formData.lastName}
             onChange={handleChange}
-            placeholder="Enter your last name"
+            placeholder='Enter your last name'
             required
-            className="bg-black-50 border border-black-300 text-black-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            className='bg-black-50 border border-black-300 text-black-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
           />
           {errors.lastName && (
-            <p className="text-red-500 text-sm">{errors.lastName}</p>
+            <p className='text-red-500 text-sm'>{errors.lastName}</p>
           )}
         </div>
         {/* date range */}
-        <div className="mb-4">
+        <div className='mb-4'>
           <label
-            htmlFor="dateRange"
-            className="block mb-2 text-sm font-medium text-black-900 dark:text-white"
+            htmlFor='dateRange'
+            className='block mb-2 text-sm font-medium text-black-900 dark:text-white'
           >
             Desired Dates
           </label>
-          <div className="flex items-center">
-            <div className="relative w-full mr-2">
+          <div className='flex items-center'>
+            <div className='relative w-full mr-2'>
               <Datepicker
                 readOnly={false}
-                title="Start Date"
+                title='Start Date'
                 onChange={handleStartDateChange} // Ensure date is a Date object
               />
             </div>
-            <span className="mx-4 text-black-500">to</span>
-            <div className="relative w-full ml-2">
+            <span className='mx-4 text-black-500'>to</span>
+            <div className='relative w-full ml-2'>
               <Datepicker
                 readOnly={false}
-                title="End Date"
+                title='End Date'
                 onChange={handleEndDateChange} // Ensure date is a Date object
               />
             </div>
@@ -171,77 +171,77 @@ const ContactForm = () => {
         </div>
 
         {/* message */}
-        <div className="mb-4">
+        <div className='mb-4'>
           <label
-            htmlFor="message"
-            className="block mb-2 text-sm font-medium text-black-900 dark:text-white"
+            htmlFor='message'
+            className='block mb-2 text-sm font-medium text-black-900 dark:text-white'
           >
             Message
           </label>
           <textarea
-            id="message"
-            name="message"
+            id='message'
+            name='message'
             value={formData.message}
             onChange={handleChange}
-            placeholder="We love questions! Ask us anything."
+            placeholder='We love questions! Ask us anything.'
             required
-            className="bg-black-50 border border-black-300 text-black-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            className='bg-black-50 border border-black-300 text-black-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
           />
           {errors.message && (
-            <p className="text-red-500 text-sm">{errors.message}</p>
+            <p className='text-red-500 text-sm'>{errors.message}</p>
           )}
         </div>
         {/* email */}
-        <div className="mb-4">
+        <div className='mb-4'>
           <label
-            htmlFor="email"
-            className="block mb-2 text-sm font-medium text-black-900 dark:text-white"
+            htmlFor='email'
+            className='block mb-2 text-sm font-medium text-black-900 dark:text-white'
           >
             Email
           </label>
           <input
-            id="email"
-            name="email"
-            type="email"
+            id='email'
+            name='email'
+            type='email'
             value={formData.email}
             onChange={handleChange}
-            placeholder="Enter your email"
-            className="bg-black-50 border border-black-300 text-black-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder='Enter your email'
+            className='bg-black-50 border border-black-300 text-black-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
           />
         </div>
         {/* phone */}
-        <div className="mb-4">
+        <div className='mb-4'>
           <label
-            htmlFor="phone"
-            className="block mb-2 text-sm font-medium text-black-900 dark:text-white"
+            htmlFor='phone'
+            className='block mb-2 text-sm font-medium text-black-900 dark:text-white'
           >
             Phone | WhatsApp
           </label>
           <input
-            id="phone"
-            name="phone"
-            type="tel"
+            id='phone'
+            name='phone'
+            type='tel'
             value={formData.phone}
             onChange={handleChange}
-            placeholder="(optional)"
-            className="bg-black-50 border border-black-300 text-black-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder='(optional)'
+            className='bg-black-50 border border-black-300 text-black-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
           />
         </div>
 
         {errors.contact && (
-          <p className="text-red-500 text-sm">{errors.contact}</p>
+          <p className='text-red-500 text-sm'>{errors.contact}</p>
         )}
 
         <button
-          type="submit"
-          className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg"
+          type='submit'
+          className='w-full bg-blue-500 text-white py-2 px-4 rounded-lg'
         >
           Send
         </button>
       </form>
 
       {submissionStatus && (
-        <p className="mt-4 text-green-500">{submissionStatus}</p>
+        <p className='mt-4 text-green-500'>{submissionStatus}</p>
       )}
     </div>
   );

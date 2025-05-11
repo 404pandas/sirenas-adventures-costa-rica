@@ -1,4 +1,3 @@
-import React from "react";
 import "./boat.css";
 
 const Boat = ({ name, diverSeats, totalSeats, description }) => {

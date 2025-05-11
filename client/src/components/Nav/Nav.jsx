@@ -1,4 +1,3 @@
-import React from "react";
 import { Navbar, Dropdown } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 import "./nav.css";
@@ -94,7 +93,7 @@ const Nav = () => {
   const navigate = useNavigate();
 
   return (
-    <Navbar fluid rounded className="sticky top-0 z-50">
+    <Navbar fluid rounded className='sticky top-0 z-50'>
       <Navbar.Link onClick={() => navigate("/")}>Home</Navbar.Link>
       <Navbar.Collapse>
         {pages.map((page) => (
