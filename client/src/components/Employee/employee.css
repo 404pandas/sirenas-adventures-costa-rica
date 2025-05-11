@@ -1,0 +1,34 @@
+.employee-card {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.employee-image {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background-color: #ccc;
+  background-size: cover;
+  background-position: center;
+}
+
+.employee-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.employee-position {
+  font-style: italic;
+  color: #555;
+}
+
+.employee-bio {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}

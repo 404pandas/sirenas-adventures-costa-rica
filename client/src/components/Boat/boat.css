@@ -1,0 +1,30 @@
+.boat-card {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.boat-image {
+  width: 100%;
+  height: 140px;
+  margin-bottom: 1rem;
+  border-radius: 0.75rem;
+  background-color: #bcdfff;
+  background-image: url("/boat-placeholder.jpg"); /* Optional placeholder */
+  background-size: cover;
+  background-position: center;
+}
+
+.boat-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.boat-seats {
+  font-size: 0.95rem;
+  color: #333;
+}
