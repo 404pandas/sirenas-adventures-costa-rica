@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-
+import "./header.css";
 const Header = () => {
   return (
     <div>
-      <section className='relative bg-gray-800'>
+      <section className='relative bg-gray-800 header-bg'>
         <div className='relative flex flex-col items-center justify-center min-h-half py-16 px-8 text-center text-white'>
           <h1 className='text-5xl font-extrabold leading-tight mb-4'>
             Sirenas Adventures

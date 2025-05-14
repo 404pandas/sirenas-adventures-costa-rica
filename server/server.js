@@ -48,7 +48,7 @@ app.post("/api/contact", (req, res) => {
   const mailOptions = {
     from: email || "no-reply@example.com",
     to: "sirenasadventures@gmail.com",
-    subject: subject,
+    subject: "Contact Form Submission",
     text: `Message from: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\nStart Date: ${startDate}\nEnd Date: ${endDate}\nMessage: ${message}`,
   };
 
